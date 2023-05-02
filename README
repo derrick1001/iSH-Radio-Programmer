@@ -23,6 +23,8 @@
 # 850 radios with firmware 12.0 and up have telnet disabled by default. There is an option in the menu to turn this on. Make sure to run that first before anything
 # else to avoid any issues.
 
+#
+
 
 
 
