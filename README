@@ -1,0 +1,28 @@
+# This documentation defines the use of the radio automation program
+
+# Your Mikrotik now has functionality to reprogram itself to work as a local network for programming 800 series Cambium radios
+
+# To enable this mode, press the mode/reset button on the side of your Mikrotik, and wait a few seconds. You should see a red light come on
+
+# If this light is on, remote access is disabled. If at any time you need to revert back, just press the mode/reset button again, red light should go away
+
+# Connect to the wifi network you want before you get started. The Mikrotik ssid is "DBOX", and once you are connected to it, move on to the next step
+
+# Start the iSH app on your phone, you should see your phones name in the terminal window.
+
+# From here, just type the word go, and the program will start.
+
+# Follow the menu instructions on what actions you want to take, you only have to type the number of the option you want.
+
+# It doesnt matter what order you do the radios in, HI/LO or LO/HI, just select the appropriate option for the radio you are connected to
+
+# Check radio connectivity EVERY time before you start any option, this will mitigate errors in program.
+
+# If radio connectivity isnt working, and you have verified connections, close the app, reconnect to the wifi network, start the app and try again.
+
+# 850 radios with firmware 12.0 and up have telnet disabled by default. There is an option in the menu to turn this on. Make sure to run that first before anything
+# else to avoid any issues.
+
+
+
+
