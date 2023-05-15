@@ -1,3 +1,12 @@
+Installation on fresh iSH app:
+
+  - Open up the iSH app and paste the following line into it
+  
+    apk add git ; git clone https://github.com/derrick1001/iSH-scripts.git ; sh iSH-scripts/setup.sh
+    
+  - Close and re-open the app for changes to take effect
+
+
 # This documentation defines the use of the radio automation program
 
 # Your Mikrotik now has functionality to reprogram itself to work as a local network for programming 800 series Cambium radios
@@ -26,15 +35,6 @@
 # Updating is easy, just use the command sync to pull down any changes that have been made to the program
 
 # Use the command howto to get this menu
-
-Installation on fresh iSH app:
-
-  - Open up the iSH app and paste the following line into it
-  
-    apk add git ; git clone https://github.com/derrick1001/iSH-scripts.git ; sh iSH-scripts/setup.sh
-    
-  - Close and re-open the app for changes to take effect
-
 
 
 
