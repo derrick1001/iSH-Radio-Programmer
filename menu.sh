@@ -29,7 +29,7 @@ progress_820_func () {
     sleep 17
     echo -ne '===                          ['$GREEN'10%'$MAGENTA']\r'
     sleep 17
-    echo -ne '======                       ['$GREEN'15%'$MAGENTA']\r'
+    echo -ne '======                       ['$GREEN'30%'$MAGENTA']\r'
     sleep 17
     echo -ne '========                     ['$GREEN'20%'$MAGENTA']\r'
     sleep 17
@@ -153,7 +153,7 @@ PTP820_func () {
     case "$answer" in
         1)
             echo -e "$GREEN$PADDING$NC"
-            /bin/sh /root/iSH-scripts/820S-software.sh 192.168.1.15 | telnet 192.168.1.1 
+            /bin/sh /root/iSH-scripts/820S-software.sh 192.168.1.30 | telnet 192.168.1.1 
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Done!!"$NC
             sleep 2
@@ -166,7 +166,7 @@ PTP820_func () {
         2)
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Programming radio..."$NC
-            /bin/sh /root/iSH-scripts/820S-import-HI-template.sh 192.168.1.15 | telnet 192.168.1.1 > import_820_HI.txt 2>&1 &
+            /bin/sh /root/iSH-scripts/820S-import-HI-template.sh 192.168.1.30 | telnet 192.168.1.1 > import_820_HI.txt 2>&1 &
             progress_850_programming_func
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Done!!"$NC
@@ -180,7 +180,7 @@ PTP820_func () {
         3)
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Programming radio..."$NC
-            /bin/sh /root/iSH-scripts/820S-import-LO-template.sh 192.168.1.15 | telnet 192.168.1.1 > import_820_LO.txt 2>&1 &
+            /bin/sh /root/iSH-scripts/820S-import-LO-template.sh 192.168.1.30 | telnet 192.168.1.1 > import_820_LO.txt 2>&1 &
             progress_850_programming_func
            echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Done!!"$NC
@@ -323,7 +323,7 @@ PTP850_18_func () {
     case "$answer" in
         1)
             echo -e "$GREEN$PADDING$NC"
-            /bin/sh /root/iSH-scripts/850C-software.sh 192.168.1.15 | telnet 192.168.1.1 
+            /bin/sh /root/iSH-scripts/850C-software.sh 192.168.1.30 | telnet 192.168.1.1 
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Done!!"$NC
             sleep 2
@@ -337,7 +337,7 @@ PTP850_18_func () {
         2)
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Programming radio..."$NC
-            /bin/sh /root/iSH-scripts/850C-import-18Ghz-HI-template.sh 192.168.1.15 | telnet 192.168.1.1 > import_850_18_HI.txt 2>&1 &
+            /bin/sh /root/iSH-scripts/850C-import-18Ghz-HI-template.sh 192.168.1.30 | telnet 192.168.1.1 > import_850_18_HI.txt 2>&1 &
             progress_850_programming_func
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Done!!"$NC
@@ -352,7 +352,7 @@ PTP850_18_func () {
         3)
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Programming radio..."$NC
-            /bin/sh /root/iSH-scripts/850C-import-18Ghz-LO-template.sh 192.168.1.15 | telnet 192.168.1.1 > import_850_18_LO.txt 2>&1 &
+            /bin/sh /root/iSH-scripts/850C-import-18Ghz-LO-template.sh 192.168.1.30 | telnet 192.168.1.1 > import_850_18_LO.txt 2>&1 &
             progress_850_programming_func
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Done!!"$NC
@@ -505,7 +505,7 @@ PTP850_11_func () {
     case "$answer" in
         1)
             echo -e "$GREEN$PADDING$NC"
-            /bin/sh /root/iSH-scripts/850C-software.sh 192.168.1.15 | telnet 192.168.1.1 
+            /bin/sh /root/iSH-scripts/850C-software.sh 192.168.1.30 | telnet 192.168.1.1 
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Done!!"$NC
             sleep 2
@@ -519,7 +519,7 @@ PTP850_11_func () {
         2)
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Programming radio..."$NC
-            /bin/sh /root/iSH-scripts/850C-import-11Ghz-HI-template.sh 192.168.1.15 | telnet 192.168.1.1 > import_850_HI.txt 2>&1 &
+            /bin/sh /root/iSH-scripts/850C-import-11Ghz-HI-template.sh 192.168.1.30 | telnet 192.168.1.1 > import_850_HI.txt 2>&1 &
             progress_850_programming_func
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Done!!"$NC
@@ -534,7 +534,7 @@ PTP850_11_func () {
         3)
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Programming radio..."$NC
-            /bin/sh /root/iSH-scripts/850C-import-11Ghz-LO-template.sh 192.168.1.15 | telnet 192.168.1.1 > import_850_LO.txt 2>&1 &
+            /bin/sh /root/iSH-scripts/850C-import-11Ghz-LO-template.sh 192.168.1.30 | telnet 192.168.1.1 > import_850_LO.txt 2>&1 &
             progress_850_programming_func
             echo -e "$GREEN$PADDING$NC"
             echo -e $BLUE"Done!!"$NC
