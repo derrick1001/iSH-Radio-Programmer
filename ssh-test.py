@@ -3,6 +3,7 @@
 from netmiko import ConnectHandler
 from subprocess import run
 from time import sleep
+from termcolor import colored
 
 ip = input('IP-address: ')
 user = input('User: ')
@@ -22,7 +23,8 @@ def connect_to_radio(ip, user, password):
 
 def countdown(seconds):
     while seconds:
-        print(f'{seconds} remaining', end='\r')
+        print(colored(f'Time remaining: {seconds:03}',
+              'light_green', attrs=['bold']), end='\r')
         sleep(1)
         seconds -= 1
 
@@ -55,9 +57,10 @@ def software_dl():
                      delay_factor=2
                      )
     refresh(status)
-    print('Software successfully uploaded.')
+    print(colored('Software successfully uploaded.',
+          'light_blue', attrs=['bold']))
     sleep(2)
-    print('Upgrading firmware now..')
+    print(colored('Upgrading firmware now..', 'light_blue', attrs=['bold']))
     sleep(2)
     install_func()
 
@@ -72,9 +75,9 @@ def install_func():
                      delay_factor=2
                      )
     refresh(status)
-    print('Installation complete.')
+    print(colored('Installation complete.', 'light_blue', attrs=['bold']))
     sleep(2)
-    print('Rebooting...')
+    print(colored('Rebooting...', 'light_blue', attrs=['bold']))
     countdown(240)
     import_func(radio)
 
@@ -89,17 +92,27 @@ def import_func(radio_type):
     con.send_command(import_template,
                      expect_string='WARNING: This will replace the existing configuration file.',)
     con.send_command('yes\n',
-                     expect_string='root>',)
+                     expect_string='root>')
     while True:
         output = con.send_command('platform configuration channel show status')
         if 'succeeded' in output:
             print('File transfer complete..')
+            sleep(2)
             break
         elif 'failure' in output:
             print('Something went wrong..')
             break
         else:
             print(output, end='\r')
+    print('Restoring configuration..')
+    sleep(2)
+    con.send_command(restore_template,
+                     expect_string='WARNING: This will replace the working configuration. System will reboot.')
+    con.send_command('yes\n',
+                     expect_string='root>'
+                     )
+    while True:
+        print()
 
 
 import_func(radio)
