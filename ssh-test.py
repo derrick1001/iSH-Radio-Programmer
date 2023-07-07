@@ -67,7 +67,9 @@ def install_func():
     print('Installation complete.')
     sleep(2)
     print('Rebooting...')
-    sleep(180)
+    sleep(185)
+    import_func(input('HI or LO: ').upper())
+
 
 
 def import_func(radio_type):
@@ -93,4 +95,3 @@ def import_func(radio_type):
 
 
 software_dl()
-# import_func(input('HI or LO: ').upper())
