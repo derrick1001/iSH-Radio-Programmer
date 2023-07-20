@@ -35,7 +35,6 @@ async def connect_to_radio(ip, user, password):
 async def countdown(second):
     for n in track(range(second), description=f'{c_GREEN}Rebooting...'):
         await sleep(1)
-run(countdown(10))
 
 
 async def refresh(cmd):
