@@ -81,62 +81,62 @@ async def software_dl():
     print(f'{c_GREEN}Software successfully uploaded.')
     await sleep(2)
     print(f'{c_GREEN}Upgrading firmware..')
-    run(install_func())
+    # run(install_func())
 
 
-async def install_func():
-    install_software = 'platform software install version'
-    status = 'platform software install status show'
-    con.send_command(install_software,
-                     expect_string=r'Software version to be installed:')
-    con.send_command('yes\n',
-                     expect_string='root>',
-                     delay_factor=2
-                     )
-    refresh(status)
-    await sleep(3)
-    print(f'{c_GREEN}Installation complete.')
-    await sleep(2)
-    run(countdown(250))
-    run(import_func(radio))
-
-
-async def import_func(radio_type):
-    set_template_params = f'platform configuration channel server set ip-address 192.168.1.30 directory sd1/820S-Builds/ filename 820S-12-0-{radio_type}-template.zip username RSI-Admin password can0py_BAM'
-    import_template = 'platform configuration configuration-file import restore-point-1'
-    restore_template = 'platform configuration configuration-file restore restore-point-1'
-    con = connect_to_radio(ip='192.168.1.1', user='admin', password='admin')
-
-    con.send_command(set_template_params)
-    con.send_command(import_template,
-                     expect_string='WARNING: This will replace the existing configuration file.',)
-    con.send_command('yes\n',
-                     expect_string='root>',)
-    print(f'{c_GREEN}Importing template..')
-    await sleep(2)
-    while True:
-        output = con.send_command('platform configuration channel show status')
-        if 'succeeded' in output:
-            print(f'{c_GREEN}File transfer complete..')
-            break
-        elif 'failure' in output:
-            print(f'{c_RED}Something went wrong..')
-            break
-        else:
-            print(f'{c_CYAN}Validating..', end='\r')
-    await sleep(2)
-    print(f'{c_GREEN}Restoring configuration..')
-    await sleep(2)
-    con.send_command(restore_template,
-                     expect_string='WARNING: This will replace the working configuration. System will reboot.')
-    output = con.send_command('yes\n',
-                     expect_string='The system is going down for reboot NOW!')
-    if 'NOW!' in output:
-        print(f'{c_GREEN}Done..')
-    else:
-        print(f'{c_RED}Something went wrong')
-    await sleep(1)
-    run(countdown(250))
+# async def install_func():
+#     install_software = 'platform software install version'
+#     status = 'platform software install status show'
+#     con.send_command(install_software,
+#                      expect_string=r'Software version to be installed:')
+#     con.send_command('yes\n',
+#                      expect_string='root>',
+#                      delay_factor=2
+#                      )
+#     refresh(status)
+#     await sleep(3)
+#     print(f'{c_GREEN}Installation complete.')
+#     await sleep(2)
+#     run(countdown(250))
+#     run(import_func(radio))
+# 
+# 
+# async def import_func(radio_type):
+#     set_template_params = f'platform configuration channel server set ip-address 192.168.1.30 directory sd1/820S-Builds/ filename 820S-12-0-{radio_type}-template.zip username RSI-Admin password can0py_BAM'
+#     import_template = 'platform configuration configuration-file import restore-point-1'
+#     restore_template = 'platform configuration configuration-file restore restore-point-1'
+#     con = connect_to_radio(ip='192.168.1.1', user='admin', password='admin')
+# 
+#     con.send_command(set_template_params)
+#     con.send_command(import_template,
+#                      expect_string='WARNING: This will replace the existing configuration file.',)
+#     con.send_command('yes\n',
+#                      expect_string='root>',)
+#     print(f'{c_GREEN}Importing template..')
+#     await sleep(2)
+#     while True:
+#         output = con.send_command('platform configuration channel show status')
+#         if 'succeeded' in output:
+#             print(f'{c_GREEN}File transfer complete..')
+#             break
+#         elif 'failure' in output:
+#             print(f'{c_RED}Something went wrong..')
+#             break
+#         else:
+#             print(f'{c_CYAN}Validating..', end='\r')
+#     await sleep(2)
+#     print(f'{c_GREEN}Restoring configuration..')
+#     await sleep(2)
+#     con.send_command(restore_template,
+#                      expect_string='WARNING: This will replace the working configuration. System will reboot.')
+#     output = con.send_command('yes\n',
+#                      expect_string='The system is going down for reboot NOW!')
+#     if 'NOW!' in output:
+#         print(f'{c_GREEN}Done..')
+#     else:
+#         print(f'{c_RED}Something went wrong')
+#     await sleep(1)
+#     run(countdown(250))
 
 
 con = connect_to_radio(ip='192.168.1.1', user='admin', password='admin')
