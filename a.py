@@ -37,28 +37,28 @@ async def countdown(second):
         await sleep(1)
 
 
-async def refresh(cmd):
-    while True:
-        output = con.send_command(cmd)
-        print(output)
-        if 'all components exist' in output:
-            print(f'{c_CYAN}Software is up to date.', end='\r')
-            break
-        elif 'Nothing to Update' in output:
-            print(f'{c_CYAN}Already up to date', end='\r')
-            break
-        elif '100' in output:
-            break
-        elif 'download in progress' in output:
-            parse_string = output.split()
-            print(f"{c_CYAN}{parse_string[8].capitalize()} {c_CYAN}{parse_string[9].capitalize()} {c_MAGENTA}{parse_string[10].capitalize()}", end='\r')
-            await sleep(10)
-        elif 'install started' or 'installation in progress' in output:
-            parse_string = output.split()
-            print(f"{c_CYAN}{parse_string[8].capitalize()} {c_CYAN}{parse_string[9].capitalize()} {c_MAGENTA}{parse_string[10].capitalize()}", end='\r')
-            await sleep(10)
-        else:
-            continue
+# async def refresh(cmd):
+#     while True:
+#         output = con.send_command(cmd)
+#         print(output)
+#         if 'all components exist' in output:
+#             print(f'{c_CYAN}Software is up to date.', end='\r')
+#             break
+#         elif 'Nothing to Update' in output:
+#             print(f'{c_CYAN}Already up to date', end='\r')
+#             break
+#         elif '100' in output:
+#             break
+#         elif 'download in progress' in output:
+#             parse_string = output.split()
+#             print(f"{c_CYAN}{parse_string[8].capitalize()} {c_CYAN}{parse_string[9].capitalize()} {c_MAGENTA}{parse_string[10].capitalize()}", end='\r')
+#             await sleep(10)
+#         elif 'install started' or 'installation in progress' in output:
+#             parse_string = output.split()
+#             print(f"{c_CYAN}{parse_string[8].capitalize()} {c_CYAN}{parse_string[9].capitalize()} {c_MAGENTA}{parse_string[10].capitalize()}", end='\r')
+#             await sleep(10)
+#         else:
+#             continue
 
 
 async def software_dl():
