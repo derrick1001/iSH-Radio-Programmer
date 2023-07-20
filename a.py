@@ -21,7 +21,7 @@ password = input(f'{c_BLUE}Password: ')
 radio = input(f'{c_BLUE}HI or LO: ').upper()
 
 
-async def connect_to_radio(ip, user, password):
+def connect_to_radio(ip, user, password):
     device = {'device_type': 'generic',
               'host': ip,
               'username': user,
@@ -81,7 +81,7 @@ async def software_dl():
     print(f'{c_GREEN}Software successfully uploaded.')
     await sleep(2)
     print(f'{c_GREEN}Upgrading firmware..')
-    install_func()
+    run(install_func())
 
 
 async def install_func():
@@ -97,8 +97,8 @@ async def install_func():
     await sleep(3)
     print(f'{c_GREEN}Installation complete.')
     await sleep(2)
-    # countdown(250)
-    # import_func(radio)
+    run(countdown(250))
+    run(import_func(radio))
 
 
 async def import_func(radio_type):
@@ -136,10 +136,10 @@ async def import_func(radio_type):
     else:
         print(f'{c_RED}Something went wrong')
     await sleep(1)
-    countdown(250)
+    run(countdown(250))
 
 
 con = connect_to_radio(ip='192.168.1.1', user='admin', password='admin')
 print("\n")
 print(f'{c_GREEN}Gathering info..')
-software_dl()
+run(software_dl())
