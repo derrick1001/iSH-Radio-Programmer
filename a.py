@@ -1,4 +1,4 @@
-#!/usr/bin/python3.8
+#!/usr/bin/python
 
 from netmiko import ConnectHandler
 from asyncio import run, sleep
