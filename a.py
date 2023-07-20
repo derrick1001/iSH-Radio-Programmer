@@ -21,15 +21,15 @@ password = input(f'{c_BLUE}Password: ')
 radio = input(f'{c_BLUE}HI or LO: ').upper()
 
 
-def connect_to_radio(ip, user, password):
-    device = {'device_type': 'generic',
-              'host': ip,
-              'username': user,
-              'password': password,
-              'fast_cli': False
-              }
-    conn = ConnectHandler(**device)
-    return conn
+# def connect_to_radio(ip, user, password):
+#     device = {'device_type': 'generic',
+#               'host': ip,
+#               'username': user,
+#               'password': password,
+#               'fast_cli': False
+#               }
+#     conn = ConnectHandler(**device)
+#     return conn
 
 
 async def countdown(second):
@@ -139,7 +139,7 @@ async def countdown(second):
 #     run(countdown(250))
 
 
-con = connect_to_radio(ip='192.168.1.1', user='admin', password='admin')
+# con = connect_to_radio(ip='192.168.1.1', user='admin', password='admin')
 print("\n")
 print(f'{c_GREEN}Gathering info..')
 # run(software_dl())
