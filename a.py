@@ -61,27 +61,27 @@ async def countdown(second):
 #             continue
 
 
-async def software_dl():
-    dl_software = 'platform software download version protocol ftp'
-    set_software_param = 'platform software download channel server set server-ip 192.168.1.30 directory sd1/820S-Builds/820S-11-9/ username RSI-Admin password can0py_BAM'
-    status = 'platform software download status show'
-
-    con.send_command(set_software_param)
-    con.send_command(dl_software,
-                     expect_string='Software Version to Download')
-    con.send_command('yes\n',
-                     expect_string='root>',
-                     delay_factor=2
-                     )
-    await sleep(2)
-    print(f'{c_GREEN}Downloading software..')
-    await sleep(2)
-    refresh(status)
-    await sleep(3)
-    print(f'{c_GREEN}Software successfully uploaded.')
-    await sleep(2)
-    print(f'{c_GREEN}Upgrading firmware..')
-    # run(install_func())
+# async def software_dl():
+#     dl_software = 'platform software download version protocol ftp'
+#     set_software_param = 'platform software download channel server set server-ip 192.168.1.30 directory sd1/820S-Builds/820S-11-9/ username RSI-Admin password can0py_BAM'
+#     status = 'platform software download status show'
+#
+#     con.send_command(set_software_param)
+#     con.send_command(dl_software,
+#                      expect_string='Software Version to Download')
+#     con.send_command('yes\n',
+#                      expect_string='root>',
+#                      delay_factor=2
+#                      )
+#     await sleep(2)
+#     print(f'{c_GREEN}Downloading software..')
+#     await sleep(2)
+#     refresh(status)
+#     await sleep(3)
+#     print(f'{c_GREEN}Software successfully uploaded.')
+#     await sleep(2)
+#     print(f'{c_GREEN}Upgrading firmware..')
+#     run(install_func())
 
 
 # async def install_func():
@@ -99,14 +99,14 @@ async def software_dl():
 #     await sleep(2)
 #     run(countdown(250))
 #     run(import_func(radio))
-# 
-# 
+#
+#
 # async def import_func(radio_type):
 #     set_template_params = f'platform configuration channel server set ip-address 192.168.1.30 directory sd1/820S-Builds/ filename 820S-12-0-{radio_type}-template.zip username RSI-Admin password can0py_BAM'
 #     import_template = 'platform configuration configuration-file import restore-point-1'
 #     restore_template = 'platform configuration configuration-file restore restore-point-1'
 #     con = connect_to_radio(ip='192.168.1.1', user='admin', password='admin')
-# 
+#
 #     con.send_command(set_template_params)
 #     con.send_command(import_template,
 #                      expect_string='WARNING: This will replace the existing configuration file.',)
@@ -142,4 +142,4 @@ async def software_dl():
 con = connect_to_radio(ip='192.168.1.1', user='admin', password='admin')
 print("\n")
 print(f'{c_GREEN}Gathering info..')
-run(software_dl())
+# run(software_dl())
