@@ -2,7 +2,7 @@
 
 from netmiko import ConnectHandler
 from time import sleep
-# from rich.progress import track
+from rich.progress import track
 import colorama
 
 # Auto reset color back to white after color call
@@ -32,9 +32,9 @@ def connect_to_radio(ip, user, password):
     return conn
 
 
-# def countdown(second):
-#     for n in track(range(second), description=f'{c_GREEN}Rebooting...'):
-#         sleep(1)
+def countdown(second):
+    for n in track(range(second), description=f'{c_GREEN}Rebooting...'):
+        sleep(1)
 
 
 def refresh(cmd):
@@ -135,10 +135,11 @@ def import_func(radio_type):
     else:
         print(f'{c_RED}Something went wrong')
     sleep(1)
-    # countdown(250)
+    countdown(250)
 
 
 con = connect_to_radio(ip='192.168.1.1', user='admin', password='admin')
 print("\n")
 print(f'{c_GREEN}Gathering info..')
+countdown(10)
 # software_dl()
