@@ -22,12 +22,6 @@ sleep 60
 echo "platform software download status show"
 sleep 60
 echo "platform software download status show"
-sleep 60
-echo "platform software download status show"
-sleep 60
-echo "platform software download status show"
-sleep 60
-echo "platform software download status show"
 sleep 5
 echo "platform software install version"
 sleep 5
